@@ -14,7 +14,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,FragmentFests.onAlmaButtonSelection{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
@@ -270,11 +270,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    @Override
-    public void onButtonSelection() {
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, new AlmaFragment());
-        fragmentTransaction.commit();
-    }
 }
