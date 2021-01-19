@@ -1,0 +1,230 @@
+Index: app/src/main/java/com/example/iitbbsgymkhana/AlmaFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.iitbbsgymkhana;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\n\r\npublic class AlmaFragment extends Fragment {\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\r\n        View view = inflater.inflate(R.layout.alma_fragment,container,false);\r\n        return view;\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/example/iitbbsgymkhana/AlmaFragment.java	(revision 3040aabf213af12026ba2c4c9cc63be2a43b7346)
++++ app/src/main/java/com/example/iitbbsgymkhana/AlmaFragment.java	(date 1611059085713)
+@@ -1,9 +1,11 @@
+ package com.example.iitbbsgymkhana;
+ 
++import android.graphics.drawable.AnimationDrawable;
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.widget.ImageView;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+@@ -14,6 +16,9 @@
+     @Override
+     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+         View view = inflater.inflate(R.layout.alma_fragment,container,false);
++        ImageView almaslidesh = view.findViewById(R.id.AlmaSlide);
++        AnimationDrawable animationDrawable = (AnimationDrawable) almaslidesh.getDrawable();
++        animationDrawable.start();
+         return view;
+     }
+ }
+Index: app/src/main/res/layout/fragment_wiss.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView13\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Wissenaire\"\r\n        android:textSize=\"32sp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.5\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+--- app/src/main/res/layout/fragment_wiss.xml	(revision 3040aabf213af12026ba2c4c9cc63be2a43b7346)
++++ app/src/main/res/layout/fragment_wiss.xml	(date 1611059749492)
+@@ -16,4 +16,10 @@
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+ 
++    <ImageView
++        android:id="@+id/WissSlide"
++        android:layout_width="match_parent"
++        android:layout_height="138dp"
++        android:src="@drawable/wiss_slideshow" />
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/iitbbsgymkhana/FragmentFests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.iitbbsgymkhana;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.Button;\r\n\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.fragment.app.FragmentTransaction;\r\n\r\n\r\npublic class FragmentFests extends Fragment {\r\n    Button alma, ashwa, wiss, esumm;\r\n\r\n    public FragmentFests(){\r\n\r\n    }\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@Nullable LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {\r\n        View view = inflater.inflate(R.layout.fragment_fests,container,false);\r\n        alma = view.findViewById(R.id.buttonalma);\r\n        ashwa = view.findViewById(R.id.buttonashwa);\r\n        esumm = view.findViewWithTag(R.id.buttonesum);\r\n        wiss = view.findViewById(R.id.buttonwiss);\r\n\r\n        alma.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                FragmentTransaction transaction = getFragmentManager().beginTransaction();\r\n                transaction.replace(R.id.fragment_container,new AlmaFragment());\r\n                transaction.commit();\r\n\r\n            }\r\n        });\r\n\r\n        ashwa.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                FragmentTransaction transaction = getFragmentManager().beginTransaction();\r\n                transaction.replace(R.id.fragment_container,new AshwaFragment());\r\n                transaction.commit();\r\n\r\n            }\r\n        });\r\n\r\n        /*esumm.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                FragmentTransaction transaction = getFragmentManager().beginTransaction();\r\n                transaction.replace(R.id.fragment_container,new ESummFragment());\r\n                transaction.commit();\r\n\r\n            }\r\n        });*/\r\n\r\n        wiss.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View view) {\r\n                FragmentTransaction transaction = getFragmentManager().beginTransaction();\r\n                transaction.replace(R.id.fragment_container,new WissFragment());\r\n                transaction.commit();\r\n\r\n            }\r\n        });\r\n\r\n\r\n\r\n\r\n        return view;\r\n    }\r\n}
+===================================================================
+--- app/src/main/java/com/example/iitbbsgymkhana/FragmentFests.java	(revision 3040aabf213af12026ba2c4c9cc63be2a43b7346)
++++ app/src/main/java/com/example/iitbbsgymkhana/FragmentFests.java	(date 1611057774784)
+@@ -23,7 +23,7 @@
+         View view = inflater.inflate(R.layout.fragment_fests,container,false);
+         alma = view.findViewById(R.id.buttonalma);
+         ashwa = view.findViewById(R.id.buttonashwa);
+-        esumm = view.findViewWithTag(R.id.buttonesum);
++        esumm = view.findViewWithTag(R.id.buttonesumm);
+         wiss = view.findViewById(R.id.buttonwiss);
+ 
+         alma.setOnClickListener(new View.OnClickListener() {
+@@ -50,7 +50,7 @@
+             @Override
+             public void onClick(View view) {
+                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
+-                transaction.replace(R.id.fragment_container,new ESummFragment());
++                transaction.replace(R.id.fragment_container,new WissFragment());
+                 transaction.commit();
+ 
+             }
+Index: app/src/main/res/layout/alma_fragment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView37\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"Alma Fiesta\"\r\n        android:textSize=\"40dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.5\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+--- app/src/main/res/layout/alma_fragment.xml	(revision 3040aabf213af12026ba2c4c9cc63be2a43b7346)
++++ app/src/main/res/layout/alma_fragment.xml	(date 1611059899359)
+@@ -16,4 +16,16 @@
+         app:layout_constraintHorizontal_bias="0.5"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
++
++    <ImageView
++        android:id="@+id/AlmaSlide"
++        android:layout_width="match_parent"
++        android:layout_height="138dp"
++        android:src="@drawable/alma_slideshow"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="1.0"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.0" />
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_esum.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/textViewsdfc\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"E-Summit\"\r\n        android:textSize=\"40dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.5\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        tools:ignore=\"MissingConstraints\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+--- app/src/main/res/layout/fragment_esum.xml	(revision 3040aabf213af12026ba2c4c9cc63be2a43b7346)
++++ app/src/main/res/layout/fragment_esum.xml	(date 1611060819524)
+@@ -18,4 +18,15 @@
+         app:layout_constraintTop_toTopOf="parent"
+         tools:ignore="MissingConstraints" />
+ 
++    <ImageView
++        android:id="@+id/EsumSlide"
++        android:layout_width="match_parent"
++        android:layout_height="138dp"
++        android:src="@drawable/esum_slideshow" />
++
++    <androidx.viewpager.widget.ViewPager
++        android:id="@+id/viewPagerAlma"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"/>
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_ashwa.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/textViewsdfc\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"AshwaMedha\"\r\n        android:textSize=\"40dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.5\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        tools:ignore=\"MissingConstraints\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+===================================================================
+--- app/src/main/res/layout/fragment_ashwa.xml	(revision 3040aabf213af12026ba2c4c9cc63be2a43b7346)
++++ app/src/main/res/layout/fragment_ashwa.xml	(date 1611059749502)
+@@ -18,4 +18,10 @@
+         app:layout_constraintTop_toTopOf="parent"
+         tools:ignore="MissingConstraints" />
+ 
++    <ImageView
++        android:id="@+id/AshwaSlide"
++        android:layout_width="match_parent"
++        android:layout_height="138dp"
++        android:src="@drawable/ashwa_slideshow" />
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/iitbbsgymkhana/WissFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.iitbbsgymkhana;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\n\r\npublic class WissFragment extends Fragment {\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\r\n        View view = inflater.inflate(R.layout.fragment_wiss,container,false);\r\n        return view;\r\n    }\r\n}\r\n
+===================================================================
+--- app/src/main/java/com/example/iitbbsgymkhana/WissFragment.java	(revision 3040aabf213af12026ba2c4c9cc63be2a43b7346)
++++ app/src/main/java/com/example/iitbbsgymkhana/WissFragment.java	(date 1611059749507)
+@@ -1,9 +1,11 @@
+ package com.example.iitbbsgymkhana;
+ 
++import android.graphics.drawable.AnimationDrawable;
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.widget.ImageView;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+@@ -14,6 +16,9 @@
+     @Override
+     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+         View view = inflater.inflate(R.layout.fragment_wiss,container,false);
++        ImageView almaslidesh = view.findViewById(R.id.WissSlide);
++        AnimationDrawable animationDrawable = (AnimationDrawable) almaslidesh.getDrawable();
++        animationDrawable.start();
+         return view;
+     }
+ }
+Index: app/src/main/java/com/example/iitbbsgymkhana/ESummFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.iitbbsgymkhana;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\n\r\npublic class ESummFragment extends Fragment {\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\r\n        View view = inflater.inflate(R.layout.fragment_esum,container,false);\r\n        return view;\r\n    }\r\n}
+===================================================================
+--- app/src/main/java/com/example/iitbbsgymkhana/ESummFragment.java	(revision 3040aabf213af12026ba2c4c9cc63be2a43b7346)
++++ app/src/main/java/com/example/iitbbsgymkhana/ESummFragment.java	(date 1611059749523)
+@@ -1,9 +1,11 @@
+ package com.example.iitbbsgymkhana;
+ 
++import android.graphics.drawable.AnimationDrawable;
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.widget.ImageView;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+@@ -14,6 +16,9 @@
+     @Override
+     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+         View view = inflater.inflate(R.layout.fragment_esum,container,false);
++        ImageView almaslidesh = view.findViewById(R.id.EsumSlide);
++        AnimationDrawable animationDrawable = (AnimationDrawable) almaslidesh.getDrawable();
++        animationDrawable.start();
+         return view;
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/iitbbsgymkhana/AshwaFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.iitbbsgymkhana;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\n\r\npublic class AshwaFragment extends Fragment {\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\r\n        View view = inflater.inflate(R.layout.fragment_ashwa,container,false);\r\n        return view;\r\n    }\r\n}
+===================================================================
+--- app/src/main/java/com/example/iitbbsgymkhana/AshwaFragment.java	(revision 3040aabf213af12026ba2c4c9cc63be2a43b7346)
++++ app/src/main/java/com/example/iitbbsgymkhana/AshwaFragment.java	(date 1611059749513)
+@@ -1,9 +1,11 @@
+ package com.example.iitbbsgymkhana;
+ 
++import android.graphics.drawable.AnimationDrawable;
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.widget.ImageView;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+@@ -14,6 +16,9 @@
+     @Override
+     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+         View view = inflater.inflate(R.layout.fragment_ashwa,container,false);
++        ImageView almaslidesh = view.findViewById(R.id.AshwaSlide);
++        AnimationDrawable animationDrawable = (AnimationDrawable) almaslidesh.getDrawable();
++        animationDrawable.start();
+         return view;
+     }
+ }
+\ No newline at end of file

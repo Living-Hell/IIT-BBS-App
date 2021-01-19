@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Wissenaire"
-        android:textSize="32sp"
+        android:id="@+id/textView37"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:text="Wissenaire, the annual techno-management fest of IIT Bhubaneswar is one of the biggest of its kind in East India. Encompassing various sectors of technology, science and management this three-day extravaganza is maneuvers it's participants through the world of futuristic technologies. Every year Wissenaire comes up with a theme and in 2019 Wissenaire has got some unique ideas in store for you with the theme Cosmic Expeditions: Astounding Odysseys Ensuring Humanity's Existence.   And here we are in the 21st century!Today, humanity has the potential to seek answers to the most fundamental questions posed about the existence of life beyond Earth. Telescopes have found planets around other stars. Robotic probes have identifiedpotential resources on the Moon, and evidence of water -- a key ingredient for life -- has been found on Marsand the moons of Jupiter. Going to the past, July 20th, 2019 was the 50th anniversary of Apollo 11’s historic flight to the moon, where astronauts Neil Armstrong and Buzz Aldrin became the first human beings to walk on the moon. 50 years ago, space flight inspired such awe that astronauts were hailed as heroes and celebrities by men, women, and children alike. 50 years later, the exploration still going on strong and with a full swing, there's no looking back. Because in the end, &quot;Somewhere, something incredible is waiting to be known.&quot;"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.544" />
+
+    <ImageView
+        android:id="@+id/SshowWiss"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="6dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/wiss_slideshow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.141" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

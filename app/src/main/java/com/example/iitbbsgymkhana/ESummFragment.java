@@ -1,9 +1,11 @@
 package com.example.iitbbsgymkhana;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +16,9 @@ public class ESummFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_esum,container,false);
+        ImageView alma_slideshow = view.findViewById(R.id.SshowEsum);
+        AnimationDrawable animationDrawable = (AnimationDrawable) alma_slideshow.getDrawable();
+        animationDrawable.start();
         return view;
     }
 }
