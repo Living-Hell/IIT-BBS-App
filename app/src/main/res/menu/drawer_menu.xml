@@ -142,6 +142,10 @@
     <item android:title="Others">
         <menu>
             <item
+                android:id="@+id/qlinks"
+                android:icon="@drawable/ic_baseline_settings_24"
+                android:title="Quick Links" />
+            <item
                 android:id="@+id/campusmap"
                 android:icon="@drawable/ic_baseline_home_24"
                 android:title="Campus Map" />

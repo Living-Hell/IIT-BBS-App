@@ -32,6 +32,7 @@ import com.example.iitbbsgymkhana.ui.FragmentHistory;
 import com.example.iitbbsgymkhana.ui.FragmentHostels;
 import com.example.iitbbsgymkhana.ui.FragmentIITCampus;
 import com.example.iitbbsgymkhana.ui.FragmentProffInCharge;
+import com.example.iitbbsgymkhana.ui.FragmentQLinks;
 import com.example.iitbbsgymkhana.ui.FragmentRegistrar;
 import com.example.iitbbsgymkhana.ui.FragmentReports;
 import com.example.iitbbsgymkhana.ui.FragmentScholarship;
@@ -329,6 +330,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.fragment_container, new FragmentCreators());
             fragmentTransaction.commit();
             getSupportActionBar().setTitle("Creators");
+        }
+
+        if(menuItem.getItemId() == R.id.qlinks) {
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, new FragmentQLinks());
+            fragmentTransaction.commit();
+            getSupportActionBar().setTitle("Quick Links");
         }
 
         return true;
